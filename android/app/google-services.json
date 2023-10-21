@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "506235799282",
+    "project_id": "flutter-notification-575e8",
+    "storage_bucket": "flutter-notification-575e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506235799282:android:b3ca7c23edf24bd805b26b",
+        "android_client_info": {
+          "package_name": "com.example.pokemongo_api_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506235799282-vbfs76hqsnu75ov6e03japrdohcr2v2o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBB_Tk0hu4k1k4Vb4XXEaJh0zblTm4aVuk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506235799282-vbfs76hqsnu75ov6e03japrdohcr2v2o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
