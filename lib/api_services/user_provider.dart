@@ -20,7 +20,7 @@ class UserProvider with ChangeNotifier {
   Future<List<MoviesModel>> getTrendingMovies(BuildContext context) async {
     try {
       String url = "${Constants.trendingUrl}";
-      var resp = await ApiServiceClass.getRequestForMoviesApp(context, url);
+      var resp = await ApiServiceClass.getRequestForMoviesApp(url);
       print("getTrendingMovies****************** ${resp!.data}");
       if (resp.statusCode == 200) {
         trendingMoviesData = (resp.data["results"] as List).map((e) => MoviesModel.fromJson(e)).toList();
@@ -38,7 +38,7 @@ class UserProvider with ChangeNotifier {
   Future<List<MoviesModel>> getTopRatedMovies(BuildContext context) async {
     try {
       String url = "${Constants.topRatedUrl}";
-      var resp = await ApiServiceClass.getRequestForMoviesApp(context, url);
+      var resp = await ApiServiceClass.getRequestForMoviesApp(url);
       print("getTopRatedMovies----------------- ${resp!.data}");
       if (resp.statusCode == 200) {
         topRateMoviesData = (resp.data["results"] as List).map((e) => MoviesModel.fromJson(e)).toList();
@@ -56,7 +56,7 @@ class UserProvider with ChangeNotifier {
   Future<List<MoviesModel>> getUpComingMovies(BuildContext context) async {
     try {
       String url = "${Constants.upcomingUrl}";
-      var resp = await ApiServiceClass.getRequestForMoviesApp(context, url);
+      var resp = await ApiServiceClass.getRequestForMoviesApp(url);
       print("getUpComingMovies ++++++++++++++ ${resp!.data}");
       if (resp.statusCode == 200) {
         upComingMoviesData = (resp.data["results"] as List).map((e) => MoviesModel.fromJson(e)).toList();
@@ -75,7 +75,7 @@ class UserProvider with ChangeNotifier {
   Future<List<GenresCategoryListModel>> getGenreCategoryMoviesList(BuildContext context) async {
     try {
       String url = "${Constants.genresUrl}";
-      var resp = await ApiServiceClass.getRequestForMoviesApp(context, url);
+      var resp = await ApiServiceClass.getRequestForMoviesApp(url);
       print("getUpComingMovies ++++++++++++++ ${resp!.data}");
       if (resp.statusCode == 200) {
         genreMoviesListData = (resp.data["genres"] as List).map((e) => GenresCategoryListModel.fromJson(e)).toList();

@@ -29,7 +29,7 @@ class ApiServiceClass {
 
   static final dio = Dio();
 
-  static Future<Response?> getRequestForMoviesApp(context, String url) async {
+  static Future<Response?> getRequestForMoviesApp(String url) async {
     try {
       // print("getRequest $url");
       Response? response = await dio.get(url);

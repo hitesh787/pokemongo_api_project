@@ -33,7 +33,6 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-
   const MyApp({Key? key}) : super(key: key);
 
   @override
@@ -44,7 +43,7 @@ class MyApp extends StatelessWidget {
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'white rose',
+        title: 'Dummy',
         themeMode: ThemeMode.system,
         home: GstCalculatorApp(),
       ),
@@ -52,26 +51,23 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Product{
+class Product {
   String name;
   double price;
   String quantity;
 
-  Product({required this.name,required this.price,required this.quantity});
+  Product({required this.name, required this.price, required this.quantity});
 }
-
 
 /// Firebase notification permission
 class FirebaseNotificationWidget extends StatefulWidget {
   const FirebaseNotificationWidget({super.key});
 
   @override
-  State<FirebaseNotificationWidget> createState() =>
-      _FirebaseNotificationWidgetState();
+  State<FirebaseNotificationWidget> createState() => _FirebaseNotificationWidgetState();
 }
 
-class _FirebaseNotificationWidgetState
-    extends State<FirebaseNotificationWidget> {
+class _FirebaseNotificationWidgetState extends State<FirebaseNotificationWidget> {
   NotificationServices notificationServices = NotificationServices();
 
   @override
@@ -93,40 +89,14 @@ class _FirebaseNotificationWidgetState
     Product(name: "name 1", price: 20.5, quantity: "quantity 1"),
     Product(name: "name 2", price: 40.5, quantity: "quantity 2"),
     Product(name: "name 3", price: 60.5, quantity: "quantity 3"),
-
   ];
 
   List<ProfileModelCustom> data = [
-    ProfileModelCustom(
-        name: "Hitesh",
-        email: "Hitesh.com",
-        id: 1,
-        phone: "1234567890",
-        username: "Hitesh",
-        website: "Hitesh.com"),
-    ProfileModelCustom(
-        name: "Rahul",
-        email: "Rahul.com",
-        id: 2,
-        phone: "1234567890",
-        username: "Rahul",
-        website: "Rahul.com"),
-    ProfileModelCustom(
-        name: "Bhavna",
-        email: "Bhavna.com",
-        id: 3,
-        phone: "1234567890",
-        username: "Bhavna",
-        website: "Bhavna.com"),
-    ProfileModelCustom(
-        name: "Rawal",
-        email: "rawal.com",
-        id: 4,
-        phone: "1234567890",
-        username: "Rawal",
-        website: "Rawal.com"),
+    ProfileModelCustom(name: "Hitesh", email: "Hitesh.com", id: 1, phone: "1234567890", username: "Hitesh", website: "Hitesh.com"),
+    ProfileModelCustom(name: "Rahul", email: "Rahul.com", id: 2, phone: "1234567890", username: "Rahul", website: "Rahul.com"),
+    ProfileModelCustom(name: "Bhavna", email: "Bhavna.com", id: 3, phone: "1234567890", username: "Bhavna", website: "Bhavna.com"),
+    ProfileModelCustom(name: "Rawal", email: "rawal.com", id: 4, phone: "1234567890", username: "Rawal", website: "Rawal.com"),
   ];
-
 
   @override
   Widget build(BuildContext context) {
@@ -146,10 +116,7 @@ class _FirebaseNotificationWidgetState
                   var data = {
                     'to':
                         "eTr5R3pkTouRZfZaIxUTdX:APA91bFF3bSnPTt8QeFlIMoNNmKVzITa_qIBvpUUUbgGS1p_dv2W2qQ2Oo63m_kL_9ip9FeJi1buENjlarnCoaWxPgWs_ogeBPTpq-5a7JtJz5HaCzilM5ex6fUhXfPflYfjSj4JbxM1",
-                    'notification': {
-                      'title': 'White Rose',
-                      'body': 'Follow me on instagram'
-                    },
+                    'notification': {'title': 'White Rose', 'body': 'Follow me on instagram'},
                     'android': {
                       'notification': {
                         'notification_count': 23,
@@ -158,14 +125,11 @@ class _FirebaseNotificationWidgetState
                     'data': {'type': 'msj', 'name': 'White Rose'}
                   };
 
-                  await http.post(
-                      Uri.parse('https://fcm.googleapis.com/fcm/send'),
-                      body: jsonEncode(data),
-                      headers: {
-                        'Content-Type': 'application/json; charset=UTF-8',
-                        'Authorization':
-                            "key=AAAAdd4BRvI:APA91bFvbe6SaiJPJabcJ7--m4k2QkE8tF5DWOANw18DT2S8_6oyebU32G8wHKF5arG5IywTWzbxgBYYmdeEUpUd7SJTeX2-NM87wysLtGIE7wxztx9dqBzDFEhNAXFgTCKHEBZJbm6F"
-                      }).then((value) {
+                  await http.post(Uri.parse('https://fcm.googleapis.com/fcm/send'), body: jsonEncode(data), headers: {
+                    'Content-Type': 'application/json; charset=UTF-8',
+                    'Authorization':
+                        "key=AAAAdd4BRvI:APA91bFvbe6SaiJPJabcJ7--m4k2QkE8tF5DWOANw18DT2S8_6oyebU32G8wHKF5arG5IywTWzbxgBYYmdeEUpUd7SJTeX2-NM87wysLtGIE7wxztx9dqBzDFEhNAXFgTCKHEBZJbm6F"
+                  }).then((value) {
                     debugPrint(value.body.toString());
                   }).onError((error, stackTrace) {
                     print(error);
@@ -177,32 +141,27 @@ class _FirebaseNotificationWidgetState
                 style: TextStyle(color: Colors.white),
               ),
             ),
-
             const SizedBox(height: 15),
-
             Expanded(
               child: ListView.builder(
                   itemCount: product.length,
-                  itemBuilder: (context,index){
-                return Container(
-                  margin: const EdgeInsets.all(10),
-                  // padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.30),
-                    borderRadius: BorderRadius.circular(15)
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ListTile(
-                        title: Text(product[index].name),
-                        subtitle: Text(product[index].quantity),
-                        trailing: Text('${product[index].price} ₹'),
-                      )
-                    ],
-                  ),
-                );
-              }),
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: const EdgeInsets.all(10),
+                      // padding: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(color: Colors.grey.withOpacity(0.30), borderRadius: BorderRadius.circular(15)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ListTile(
+                            title: Text(product[index].name),
+                            subtitle: Text(product[index].quantity),
+                            trailing: Text('${product[index].price} ₹'),
+                          )
+                        ],
+                      ),
+                    );
+                  }),
             )
           ],
         ),
@@ -210,8 +169,6 @@ class _FirebaseNotificationWidgetState
     );
   }
 }
-
-
 
 /// Permission Code
 class PermissionHandlerApp extends StatefulWidget {
@@ -230,8 +187,7 @@ class _PermissionHandlerAppState extends State<PermissionHandlerApp> {
         backgroundColor: Colors.indigo,
         title: const Text(
           'Permission Handler App',
-          style: TextStyle(
-              fontWeight: FontWeight.bold, color: Colors.white, fontSize: 25),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 25),
         ),
       ),
       drawer: Drawer(
@@ -242,8 +198,7 @@ class _PermissionHandlerAppState extends State<PermissionHandlerApp> {
               UserAccountsDrawerHeader(
                 accountName: Text("White Rose"),
                 accountEmail: Text("whiterose@gmail.com"),
-                currentAccountPicture:
-                    CircleAvatar(backgroundColor: Colors.black),
+                currentAccountPicture: CircleAvatar(backgroundColor: Colors.black),
               )
             ],
           ),
@@ -259,8 +214,7 @@ class _PermissionHandlerAppState extends State<PermissionHandlerApp> {
                 label: const Text('Camera Permission'),
                 style: ButtonStyle(
                   shape: MaterialStatePropertyAll(
-                    RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(7)),
+                    RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
                   ),
                   fixedSize: const MaterialStatePropertyAll(Size(250, 40)),
                   backgroundColor: const MaterialStatePropertyAll(Colors.red),
@@ -314,8 +268,7 @@ class _PermissionHandlerAppState extends State<PermissionHandlerApp> {
                 label: const Text('Image Permission'),
                 style: ButtonStyle(
                   shape: MaterialStatePropertyAll(
-                    RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(7)),
+                    RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
                   ),
                   fixedSize: const MaterialStatePropertyAll(Size(250, 40)),
                   backgroundColor: const MaterialStatePropertyAll(Colors.teal),
@@ -369,16 +322,14 @@ class _PermissionHandlerAppState extends State<PermissionHandlerApp> {
                 label: const Text('Multiple Permission'),
                 style: ButtonStyle(
                   shape: MaterialStatePropertyAll(
-                    RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(7)),
+                    RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
                   ),
                   fixedSize: const MaterialStatePropertyAll(Size(250, 40)),
                   //  ww: 200,
                   backgroundColor: const MaterialStatePropertyAll(Colors.blue),
                 ),
                 onPressed: () async {
-                  Map<Permission, PermissionStatus> multiplestatus =
-                      await [Permission.camera, Permission.storage].request();
+                  Map<Permission, PermissionStatus> multiplestatus = await [Permission.camera, Permission.storage].request();
                   if (multiplestatus[Permission.camera]!.isGranted) {
                     debugPrint('Camera Permission is Granted');
                   }
@@ -437,20 +388,15 @@ class _PermissionHandlerAppState extends State<PermissionHandlerApp> {
   }
 }
 
-
-
-
 /// Internet Connectivity And Local Notification
 class InternetConnectivityWidget extends StatefulWidget {
   const InternetConnectivityWidget({super.key});
 
   @override
-  State<InternetConnectivityWidget> createState() =>
-      _InternetConnectivityWidgetState();
+  State<InternetConnectivityWidget> createState() => _InternetConnectivityWidgetState();
 }
 
-class _InternetConnectivityWidgetState
-    extends State<InternetConnectivityWidget> {
+class _InternetConnectivityWidgetState extends State<InternetConnectivityWidget> {
   ConnectivityResult? result;
   StreamSubscription? subscription;
   var isConnected = false;
